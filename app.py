@@ -11,7 +11,7 @@ def index():
 @app.route('/chat', methods=['POST'])
 def chat():
     try:
-     
+        
         data = request.get_json()
         print("Received:", data)  
 
@@ -21,9 +21,9 @@ def chat():
         if not user_message:
             return jsonify({'error': 'No message provided'}), 400
 
-      
+       
         bot_response = get_response(user_message, session_id)
-        print("Bot response:", bot_response)
+        print("Bot response:", bot_response) 
 
         return jsonify({
             "user_message": user_message,
@@ -31,13 +31,10 @@ def chat():
             "timestamp": datetime.now().strftime("%H:%M:%S")
         })
     except Exception as e:
-        print("ERROR:", e)  
+        print("ERROR:", e) 
         return jsonify({'error': 'Server error'}), 500
 
 if __name__ == "__main__":
-    print("🎮 Entertainment ChatBot is starting...")
-    print("🎯 Games: Number Guessing, Trivia, Riddles")
-    print("🎭 Fun: Jokes, Movies, Would You Rather")
     print("📱 Open: http://localhost:5000")
-    print("🛑 Stop: Ctrl+C")
+    print("Stop: Ctrl+C")
     app.run(debug=True, host="0.0.0.0", port=5000)
