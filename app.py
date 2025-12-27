@@ -35,6 +35,6 @@ def chat():
         return jsonify({'error': 'Server error'}), 500
 
 if __name__ == "__main__":
-    print("📱 Open: http://localhost:5000")
+    print("Open: http://localhost:5000")
     print("Stop: Ctrl+C")
     app.run(debug=True, host="0.0.0.0", port=5000)
